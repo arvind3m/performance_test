@@ -1,0 +1,14 @@
+{
+  "name": "performance_test",
+  "version": "1.0.0",
+  "license": "ISC",
+  "scripts": {
+    "mock": "mb --configfile mountebank/imposters.ejs --allowInjection",
+    "test": "k6 run --config config.json scripts.js",
+    "test_report": "k6 run --config config.json --out influxdb=http://localhost:8086/myk6db scripts.js",
+    "start_micro": "node service-a/server.js"
+  },
+  "dependencies": {
+    "mountebank": "^1.14.1"
+  }
+}

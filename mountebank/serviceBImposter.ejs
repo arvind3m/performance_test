@@ -1,0 +1,23 @@
+{
+  "port": 4545,
+  "protocol": "http",
+  "name": "Service B Stub",
+  "recordRequests": true,
+  "stubs": [{
+      "predicates": [{
+           "equals": {
+             "method": "GET",
+             "path": "/"
+           }
+        }],
+       "responses": [{
+           "is": {
+             "statusCode": 200,
+             "body": "<%- stringify(filename, 'serviceBResponse.json') %>"
+           },
+           "_behaviors": {
+             "wait": 500
+           }
+      }]
+  }]
+}
